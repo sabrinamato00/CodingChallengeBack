@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const tienda = require("./routes/index");
+const usuarios = require("./routes/users");
 
 require("dotenv").config();
 
@@ -16,6 +17,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use("/api", tienda);
+app.use("/auth", usuarios);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
